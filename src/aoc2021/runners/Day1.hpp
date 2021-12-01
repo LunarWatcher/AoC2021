@@ -8,6 +8,8 @@ namespace aoc {
 class Day1 : public Runner {
 private:
     std::vector<int> input;
+
+    std::string runner(int offset);
 public:
     Day1();
 
