@@ -23,11 +23,11 @@ inline std::vector<int> convertStringToIntVec(const std::string& input, char del
     return vec;
 }
 
-inline std::vector<std::string> loadFile(int day) {
-    std::ifstream stream("input/day" + std::to_string(day) + ".txt");
+inline std::vector<std::string> loadFile(std::string day) {
+    std::ifstream stream("input/day" + day + ".txt");
     if (!stream) {
         std::cout << "File not found for day " << day << std::endl;
-        throw "File not found for day " + std::to_string(day);
+        throw "File not found for day " + day;
     }
     std::vector<std::string> str;
     std::string tmp;
@@ -39,8 +39,8 @@ inline std::vector<std::string> loadFile(int day) {
 }
 
 template <typename T>
-inline std::vector<T> loadType(int day, std::function<T(const std::string&)> converter) {
-    auto rawFile = loadFile(day); 
+inline std::vector<T> loadType(std::string day, std::function<T(const std::string&)> converter) {
+    auto rawFile = loadFile(day);
     std::vector<T> vec;
 
     for (auto& tmp : rawFile) {

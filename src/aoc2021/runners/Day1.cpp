@@ -3,7 +3,7 @@
 
 namespace aoc {
 
-Day1::Day1() : input(loadType<int>(1, &sastoi)){
+Day1::Day1() : input(loadType<int>("1", &sastoi)){
 
 }
 

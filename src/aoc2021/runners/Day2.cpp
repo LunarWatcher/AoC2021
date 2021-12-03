@@ -4,7 +4,7 @@
 
 namespace aoc {
 
-Day2::Day2() : data(loadType<std::pair<Direction, int>>(2, [](const std::string& in) -> std::pair<Direction, int> {
+Day2::Day2() : data(loadType<std::pair<Direction, int>>("2", [](const std::string& in) -> std::pair<Direction, int> {
             Direction dir;
             switch(in.at(0)) {
             case 'f':
