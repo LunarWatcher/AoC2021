@@ -31,10 +31,7 @@ std::string Day3::part1() {
     int gamma = 0, epsilon = 0;
 
     for (int i = 0; i < len; ++i) {
-        int one = 0;
-        for (const auto& bts : data) {
-            if (bts.at(i) == '1') ++one;
-        }
+        int one = std::count_if(data.cbegin(), data.cend(), [i](const std::string& in) { return in.at(i) == '1'; });
         int high = 1;
         if (one < data.size() / 2) {
             high = 0;
