@@ -42,10 +42,7 @@ template <typename T>
 inline std::vector<T> loadType(std::string day, std::function<T(const std::string&)> converter) {
     auto rawFile = loadFile(day);
     std::vector<T> vec;
-
-    for (auto& tmp : rawFile) {
-        vec.push_back(converter(tmp));
-    }
+    std::transform(rawFile.begin(), rawFile.end(), std::back_inserter(vec), converter);
     return vec;
 }
 

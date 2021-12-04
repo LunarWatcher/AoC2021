@@ -9,6 +9,7 @@
 #include "runners/Day1.hpp"
 #include "runners/Day2.hpp"
 #include "runners/Day3.hpp"
+#include "runners/Day4.hpp"
 
 #define Day(x) std::make_shared<aoc::Day##x>()
 
@@ -17,6 +18,7 @@ int main(int argc, char* argv[]) {
         Day(1),
         Day(2),
         Day(3),
+        Day(4),
     };
     int min, max;
     if (argc == 1) {

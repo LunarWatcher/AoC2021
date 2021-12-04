@@ -437,3 +437,4 @@ FodyWeavers.xsd
 # End borrowed content
 # }}}
 # vim:ft=gitignore
+.gdb_history
