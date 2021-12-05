@@ -9,6 +9,8 @@ set (SOURCE_FILES
 
 add_executable(aoc2021 ${SOURCE_FILES})
 target_include_directories(aoc2021 PUBLIC ./)
+target_include_directories(aoc2021 PUBLIC ../stc/src)
+
 if (NEEDS_CONAN)
     target_include_directories(aoc2021 PUBLIC ${CONAN_INCLUDE_DIRS})
 

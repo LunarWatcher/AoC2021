@@ -1,14 +1,14 @@
 #include "Day5.hpp"
 
-#include "aoc2021/util/StringUtils.hpp"
+#include "stc/StringUtil.hpp"
 
 namespace aoc {
 
 Day5::Day5() : lines(
         loadType<Line>("5", [](const std::string& in) -> Line {
-            auto points = stc::string::splitString(in, " -> ");
-            auto a = stc::string::splitString(points.at(0), ',');
-            auto b = stc::string::splitString(points.at(1), ',');
+            auto points = stc::string::split(in, " -> ");
+            auto a = stc::string::split(points.at(0), ',');
+            auto b = stc::string::split(points.at(1), ',');
 
             return {
                 { std::stoi(a.at(0)), std::stoi(a.at(1)) },
@@ -58,8 +58,6 @@ std::string Day5::part2() {
             for (int i = 0; i <= maxX - minX; ++i) {
                 map[{minX + i, startY + i * (negY ? -1 : 1)}] += 1;
             }
-            std::cout << std::endl;
-            
         }
 
     }
