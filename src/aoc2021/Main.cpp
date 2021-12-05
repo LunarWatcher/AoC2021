@@ -10,15 +10,37 @@
 #include "runners/Day2.hpp"
 #include "runners/Day3.hpp"
 #include "runners/Day4.hpp"
+#include "runners/Day5.hpp"
+//#include "runners/Day6.hpp"
+//#include "runners/Day7.hpp"
+//#include "runners/Day8.hpp"
+//#include "runners/Day9.hpp"
+//#include "runners/Day10.hpp"
+//#include "runners/Day11.hpp"
+//#include "runners/Day12.hpp"
+//#include "runners/Day13.hpp"
+//#include "runners/Day14.hpp"
+//#include "runners/Day15.hpp"
+//#include "runners/Day16.hpp"
+//#include "runners/Day17.hpp"
+//#include "runners/Day18.hpp"
+//#include "runners/Day19.hpp"
+//#include "runners/Day20.hpp"
+//#include "runners/Day21.hpp"
+//#include "runners/Day22.hpp"
+//#include "runners/Day23.hpp"
+//#include "runners/Day24.hpp"
+//#include "runners/Day25.hpp"
 
 #define Day(x) std::make_shared<aoc::Day##x>()
 
 int main(int argc, char* argv[]) {
     std::vector<std::shared_ptr<aoc::Runner>> runners = {
-        Day(1),
-        Day(2),
-        Day(3),
-        Day(4),
+        Day(1), Day(2), Day(3), Day(4), Day(5),
+        //Day(6), Day(7), Day(8), Day(9), Day(10),
+        //Day(11), Day(12), Day(13), Day(14), Day(15),
+        //Day(16), Day(17), Day(18), Day(19), Day(20),
+        //Day(21), Day(22), Day(23), Day(24), Day(25),
     };
     int min, max;
     if (argc == 1) {
