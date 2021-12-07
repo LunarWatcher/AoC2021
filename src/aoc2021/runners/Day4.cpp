@@ -62,31 +62,31 @@ std::optional<Day4::Board> Day4::checkBingo(const Day4::Boards& boards) {
     return {};
 }
 
-std::string Day4::part1() {
+StrPair Day4::run() {
+    std::string a, b;
     for (auto number : numbers) {
         pool[number]->second = true;
     
         std::optional<Board> winner = checkBingo(boards);
         if (winner) {
-            return std::to_string(sumBoard(*winner) * number);
+            a = std::to_string(sumBoard(*winner) * number);
+            break;
         }
     }
-    return "Failed to find answer";
-}
-std::string Day4::part2() {
     for (auto number : numbers) {
         pool[number]->second = true;
     
         while (std::optional<Board> winner = checkBingo(boards)) {
             if (boards.size() == 1) {
-                return std::to_string(sumBoard(*winner) * number);
+                b = std::to_string(sumBoard(*winner) * number);
+                break;
             } else {
                 boards.erase(std::find(boards.begin(), boards.end(), winner));
             }
         }
 
     }
-    return "Failed to find answer";
+    return {a, b};
 }
 
 int Day4::sumBoard(const Board& b) {

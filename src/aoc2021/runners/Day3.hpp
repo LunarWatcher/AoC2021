@@ -15,8 +15,7 @@ private:
     BitList data = loadFile(/*"3-test"*/ "3");
     long long part2runner(const BitList& input, bool high = false, size_t index = 0);
 public:
-    std::string part1() override;
-    std::string part2() override;
+    StrPair run() override;
 };
 
 }

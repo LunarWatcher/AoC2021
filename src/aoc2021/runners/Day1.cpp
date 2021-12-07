@@ -20,12 +20,11 @@ std::string Day1::runner(int offset) {
 
 }
 
-std::string Day1::part1() {
-    return runner(1);
-}
-
-std::string Day1::part2() {
-    return runner(3);
+StrPair Day1::run() {
+    return {
+        runner(1),
+        runner(3)
+    };
 }
 
 }

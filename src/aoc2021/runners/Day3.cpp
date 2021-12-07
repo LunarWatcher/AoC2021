@@ -25,7 +25,7 @@ long long Day3::part2runner(const BitList& input, bool high, size_t index) {
     return part2runner(one.size() >= zero.size() ? zero : one, high, index + 1);
 }
 
-std::string Day3::part1() {
+StrPair Day3::run() {
     size_t len = data.at(0).size();
 
     int gamma = 0, epsilon = 0;
@@ -39,11 +39,10 @@ std::string Day3::part1() {
         gamma |= high << (len - i - 1);
         epsilon |= (!high) << (len - i - 1);
     }
-    return std::to_string(gamma * epsilon);
-}
-
-std::string Day3::part2() {
-    return std::to_string(part2runner(data, true) * part2runner(data, false));
+    return {
+        std::to_string(gamma * epsilon),
+        std::to_string(part2runner(data, true) * part2runner(data, false))
+    };
 }
 
 }

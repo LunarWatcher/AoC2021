@@ -26,12 +26,11 @@ long long Day6::simulate(int days) {
     return sum;
 }
 
-std::string Day6::part1() {
-    return std::to_string(simulate(80));
-}
-
-std::string Day6::part2() {
-    return std::to_string(simulate(256));
+StrPair Day6::run() {
+    return {
+        std::to_string(simulate(80)),
+        std::to_string(simulate(256))
+    };
 }
 
 }

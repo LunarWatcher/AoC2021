@@ -18,7 +18,7 @@ Day5::Day5() : lines(
 
 }
 
-std::string Day5::part1() {
+StrPair Day5::run() {
     for (auto& line : lines) {
         if (line.first.first == line.second.first) {
             int x = line.first.first;
@@ -37,16 +37,13 @@ std::string Day5::part1() {
         }
 
     }
-    int res = 0;
+    int resA = 0;
     for (auto& [pair, count] : map) {
         if (count >= 2) {
-            ++res;
+            ++resA;
         }
     }
-    return std::to_string(res);
-}
 
-std::string Day5::part2() {
     for (auto& line : lines) {
         if (line.first.first != line.second.first && line.first.second != line.second.second) {
             auto [minX, maxX] = minMax(line.first.first, line.second.first);
@@ -61,13 +58,13 @@ std::string Day5::part2() {
         }
 
     }
-    int res = 0;
+    int resB = 0;
     for (auto& [pair, count] : map) {
         if (count >= 2) {
-            ++res;
+            ++resB;
         }
     }
-    return std::to_string(res);
+    return { std::to_string(resA), std::to_string(resB) };
 }
 
 }

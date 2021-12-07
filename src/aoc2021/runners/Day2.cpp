@@ -20,45 +20,49 @@ Day2::Day2() : data(loadType<std::pair<Direction, int>>("2", [](const std::strin
             return {dir, std::stoi(in.substr(in.find(' ') + 1))};
         })){}
 
-std::string Day2::part1() {
-    long long h = 0, d = 0;
+StrPair Day2::run() {
+    std::string a, b;
 
-    for (auto& move : data) {
-        switch (move.first) {
-        case UP:
-            d -= move.second;
-            break;
-        case DOWN:
-            d += move.second;
-            break;
-        case FORWARD:
-            h += move.second;
-            break;
+    {
+        long long h = 0, d = 0;
+
+        for (auto& move : data) {
+            switch (move.first) {
+            case UP:
+                d -= move.second;
+                break;
+            case DOWN:
+                d += move.second;
+                break;
+            case FORWARD:
+                h += move.second;
+                break;
+            }
         }
+
+        a = std::to_string(h * d);
     }
+    {
+        long long h = 0, d = 0, aim = 0;
 
-    return std::to_string(h * d);
-}
-
-std::string Day2::part2() {
-    long long h = 0, d = 0, aim = 0;
-
-    for (auto& move : data) {
-        switch (move.first) {
-        case UP:
-            aim -= move.second;
-            break;
-        case DOWN:
-            aim += move.second;
-            break;
-        case FORWARD:
-            h += move.second;
-            d += aim * move.second;
-            break;
+        for (auto& move : data) {
+            switch (move.first) {
+            case UP:
+                aim -= move.second;
+                break;
+            case DOWN:
+                aim += move.second;
+                break;
+            case FORWARD:
+                h += move.second;
+                d += aim * move.second;
+                break;
+            }
         }
-    }
 
-    return std::to_string(h * d);
+        b = std::to_string(h * d);
+    }
+    return {a, b};
 }
 
 }

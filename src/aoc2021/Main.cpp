@@ -12,7 +12,7 @@
 #include "runners/Day4.hpp"
 #include "runners/Day5.hpp"
 #include "runners/Day6.hpp"
-//#include "runners/Day7.hpp"
+#include "runners/Day7.hpp"
 //#include "runners/Day8.hpp"
 //#include "runners/Day9.hpp"
 //#include "runners/Day10.hpp"
@@ -37,7 +37,7 @@
 int main(int argc, char* argv[]) {
     std::vector<std::shared_ptr<aoc::Runner>> runners = {
         Day(1), Day(2), Day(3), Day(4), Day(5),
-        Day(6),
+        Day(6), Day(7)
     };
     int min, max;
     if (argc == 1) {
@@ -49,8 +49,9 @@ int main(int argc, char* argv[]) {
     }
     for (int i = min; i < max; ++i) {
         std::cout << "##### Day " << i + 1 << " #####" << std::endl;
-        std::cout << "Part 1: " << runners.at(i)->part1() << std::endl;
-        std::cout << "Part 2: " << runners.at(i)->part2() << std::endl;
+        aoc::StrPair result = runners.at(i)->run();
+        std::cout << "Part 1: " << result.first << std::endl;
+        std::cout << "Part 2: " << result.second << std::endl;
     }
 
 }

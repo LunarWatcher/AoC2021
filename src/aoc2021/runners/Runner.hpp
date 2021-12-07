@@ -4,10 +4,10 @@
 
 namespace aoc {
 
+typedef std::pair<std::string, std::string> StrPair;
 class Runner {
 public:
-    virtual std::string part1() = 0;
-    virtual std::string part2() = 0;
+    virtual StrPair run() = 0;
 };
 
 }

@@ -23,8 +23,7 @@ private:
 public:
     Day5();
 
-    std::string part1() override;
-    std::string part2() override;
+    StrPair run() override;
 };
 
 }
