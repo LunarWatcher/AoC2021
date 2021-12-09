@@ -7,6 +7,7 @@ set (SOURCE_FILES
     aoc2021/runners/Day5.cpp
     aoc2021/runners/Day6.cpp
     aoc2021/runners/Day7.cpp
+    aoc2021/runners/Day8.cpp
 )
 
 add_executable(aoc2021 ${SOURCE_FILES})

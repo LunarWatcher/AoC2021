@@ -23,6 +23,18 @@ inline std::vector<int> convertStringToIntVec(const std::string& input, char del
     return vec;
 }
 
+template <typename T>
+inline std::vector<T> convertStringToVec(const std::string& input, char delimiter, std::function<T(const std::string&)> converter) {
+    std::vector<T> vec;
+    std::stringstream ss(input);
+    std::string tmp;
+    while (std::getline(ss, tmp, delimiter)) {
+        vec.push_back(converter ? converter(tmp) : tmp);
+    }
+    return vec;
+
+}
+
 inline std::vector<std::string> loadFile(std::string day) {
     std::ifstream stream("input/day" + day + ".txt");
     if (!stream) {
