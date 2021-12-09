@@ -14,7 +14,7 @@
 #include "runners/Day6.hpp"
 #include "runners/Day7.hpp"
 #include "runners/Day8.hpp"
-//#include "runners/Day9.hpp"
+#include "runners/Day9.hpp"
 //#include "runners/Day10.hpp"
 //#include "runners/Day11.hpp"
 //#include "runners/Day12.hpp"
@@ -37,7 +37,7 @@
 int main(int argc, char* argv[]) {
     std::vector<std::shared_ptr<aoc::Runner>> runners = {
         Day(1), Day(2), Day(3), Day(4), Day(5),
-        Day(6), Day(7), Day(8)
+        Day(6), Day(7), Day(8), Day(9)
     };
     int min, max;
     if (argc == 1) {
