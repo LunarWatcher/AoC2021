@@ -58,7 +58,7 @@ continueOuter: continue;
     std::sort(resultB.begin(), resultB.end());
     return {
         std::to_string(resultA),
-        std::to_string(resultB.at(std::floor(resultB.size() / 2.0)))
+        std::to_string(resultB.at(resultB.size() / 2))
     };
 }
 
