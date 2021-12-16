@@ -39,6 +39,7 @@ StrPair Day8::run() {
         a = std::to_string(sum);
     }
     {
+
         std::map<std::string, std::string> map = {
             {"abcdef", "9"},
             {"abcdefg", "8"},
@@ -51,15 +52,16 @@ StrPair Day8::run() {
             {"ab", "1"},
             {"abcdeg", "0"}
         };
-        long long sum = 0;
-        for (auto& [_, output] : data) {
-            std::string num;
-            for (auto& c : output) {
-                num += map.at(c);
-            }
-            sum += std::stoi(num);
-        }
-        b = std::to_string(sum);
+        //long long sum = 0;
+        //for (auto& [_, output] : data) {
+            //std::string num;
+            //for (auto& c : output) {
+                //std::cout << c << std::endl;
+                //num += map.at(c);
+            //}
+            //sum += std::stoi(num);
+        //}
+        //b = std::to_string(sum);
     }
 
     return {
