@@ -1,0 +1,19 @@
+#pragma once
+
+#include "aoc2021/runners/Runner.hpp"
+
+#include <map>
+
+namespace aoc {
+
+class Day14 : public Runner {
+private:
+    std::string pairs;
+    std::map<std::string, std::string> mapping;
+public:
+    Day14();
+
+    StrPair run() override;
+};
+
+}

@@ -79,13 +79,13 @@ StrPair Day4::run() {
         while (std::optional<Board> winner = checkBingo(boards)) {
             if (boards.size() == 1) {
                 b = std::to_string(sumBoard(*winner) * number);
-                break;
+                goto escape;
             } else {
                 boards.erase(std::find(boards.begin(), boards.end(), winner));
             }
         }
-
     }
+escape:
     return {a, b};
 }
 
