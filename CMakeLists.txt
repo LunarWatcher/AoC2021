@@ -18,6 +18,10 @@ if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
                 TLS_VERIFY ON)
 endif()
 
+if (ENABLE_PROFILING)
+    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+endif()
+
 set (NEEDS_CONAN OFF)
 
 #set (CMAKE_REQUIRED_INCLUDES "/usr/local/include")

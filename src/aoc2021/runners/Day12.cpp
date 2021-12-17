@@ -2,6 +2,7 @@
 #include "stc/StringUtil.hpp"
 
 #include <queue>
+#include <stack>
 #include <algorithm>
 
 namespace aoc {
@@ -26,38 +27,40 @@ Day12::Day12() {
 }
 
 int Day12::runPart(bool partB) {
+    int cnt = 0;
 
-    std::shared_ptr<Node> root = std::make_shared<Node>("start");
 
-    std::queue<std::shared_ptr<Node>> next;
-    next.push(root);
+    std::vector<std::shared_ptr<Node>> next;
+    {
+        std::shared_ptr<Node> root = std::make_shared<Node>("start");
+        next.push_back(root);
+    }
     do {
-        auto current = next.front();
-        next.pop();
-        //std::cout << "--- Processing " << current->name << "(parent: " << (current->parent ? current->parent->name : "None") << ")" << std::endl;
+        auto current = next.back();
+        next.pop_back();
 
         auto children = data.at(current->name);
         for (auto& child : children) {
             bool dupeFlag = false;
             if (child != "end" && std::all_of(child.begin(), child.end(), [](const char& c) {
-                        return std::islower(c);
+                        return c >= 'a';
                     }) && findNotContains(current, child)) {
                 if (partB && !current->subtreeHasDupes) {
                     dupeFlag = true;
                 } else
                     continue;
             }
-            //std::cout << "Appending " << child << std::endl;
             auto newNode = std::make_shared<Node>(child);
             newNode->parent = current;
             newNode->subtreeHasDupes = dupeFlag | current->subtreeHasDupes;
-            current->children.push_back(newNode);
             if (child != "end")
-                next.push(newNode);
+                next.push_back(newNode);
+            else
+                ++cnt;
         }
     } while (next.size());
 
-    return count(root);
+    return cnt;
 }
 
 StrPair Day12::run() {
